@@ -2,10 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    
-    <?php include 'import.php'; ?>
-    
-    <title>HogInacio</title>
+    <?php include 'imports.php'; ?>
+    <title>Escola HogInacio</title>
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -29,12 +27,11 @@
                 $sql = "SELECT * FROM aluno WHERE nome
                 LIKE '{$nome}%'";
                 
-                $result = mysqli_query($con, $sql);
+                $result = mysqli_query($con, $sql); 
                 
                 $totalRegistros = mysqli_num_rows($result);
                 
                 if($totalRegistros > 0){?>
-                    
                     <table class="table table-hover">
                         <tr>
                             <th>Nome</th>
@@ -43,45 +40,26 @@
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
-                        
-                        
-                        <?php
-                        
-                        while($row = mysqli_fetch_array($result)){
-                            echo "<tr>";
-                            echo "<td>{$row['nome']}</td>";
-                            echo "<td>{$row['email']}</td>";
-                            echo "<td>{$row['telefone']}</td>";
-                            echo "<td><button class='btn'><i class='fa fa-edit'></i></button></td>";
-                            echo "<td><button class='btn' onclick='confirma_exclusao()'><i class='fa fa-trash'></i></button></td>";
-                            echo "</tr>";
-                        }
-                        
+                <?php
+                   while($row = mysqli_fetch_array($result)){
+                   echo "<tr>";
+                   echo "<td>{$row['nome']}</td>";
+                   echo "<td>{$row['email']}</td>";
+                   echo "<td>{$row['tel']}</td>";
+                   echo "<td><a href='editar.php?mat={$row[0]}'><i class='fas fa-user-edit'></i></a></td>";
+                   echo "<td><i class='fas fa-trash-alt'></i></td>";
+                   echo "</tr>";
+                }     
                         ?>
-                        
                     </table>
-                    
-                    
-                <?php   
+                <?php
                 }else{
-                    echo "Nenhum registro encontrado";
-                }
-                
-                
-                
+                    echo "Nenhum registro encontrado!";
+                }  
+                mysqli_close($con);
             }           
         ?>
+        <a href="index.php">Página Inicial</a>
     </div>
-    
-    <script>
-        function confirma_exclusao($row){
-            var r = confirm("Tem certeza que deseja excluir?");
-            if (r)
-              {
-                <?php $sql = "DELETE FROM aluno WHERE = $row" ?>
-                alert("Aluno excluido com sucesso");
-              }
-            }
-    </script>
 </body>
 </html>

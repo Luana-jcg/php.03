@@ -2,10 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    
-    <?php include 'import.php'; ?>
-    
-    <title>HogInacio</title>
+    <?php include 'imports.php'; ?>
+    <title>Escola HogInacio</title>
 </head>
 <body>
     <?php include 'header.php'; ?>
