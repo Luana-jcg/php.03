@@ -27,6 +27,9 @@
             <input type="tel" name="tel" class="form-control col-md-4" value="<?php echo $row['tel'];?>"><br>
             <input type="submit" value="Enviar" class="btn btn-success">
         </form><br>
+        <?php
+            mysqli_close($con);
+        ?>
         <a href="index.php">Página Inicial</a>
     </div>
 </body>
