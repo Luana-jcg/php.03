@@ -1,7 +1,8 @@
+
 <?php
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
+$nome         = $_POST["nome"];
+$email        = $_POST["email"];
 $tel  = $_POST["tel"];
 
 include_once 'conexao.php';

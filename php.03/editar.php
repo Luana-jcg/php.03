@@ -25,11 +25,8 @@
             <input type="email" name="email" class="form-control col-md-4" value="<?php echo $row['email'];?>">
             <label>Telefone: </label>
             <input type="tel" name="tel" class="form-control col-md-4" value="<?php echo $row['tel'];?>"><br>
-            <input type="submit" value="Enviar" class="btn btn-success">
+            <input type="submit" value="Atualizar" class="btn btn-success">
         </form><br>
-        <?php
-            mysqli_close($con);
-        ?>
         <a href="index.php">Página Inicial</a>
     </div>
 </body>

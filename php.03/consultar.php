@@ -6,7 +6,7 @@
     <title>Escola HogInacio</title>
     <script>
         function excluir(mat){
-            if(confirm('Deseja realmente excluir?')){
+            if(confirm('Deseja realmente excluir este aluno?')){
                 location.href='excluir.php?mat='+mat;
             }
         }
@@ -52,9 +52,17 @@
                    echo "<tr>";
                    echo "<td>{$row['nome']}</td>";
                    echo "<td>{$row['email']}</td>";
-                   echo "<td>{$row['tel']}</td>";
-                   echo "<td><a href='editar.php?mat={$row[0]}'><i class='fas fa-user-edit'></i></a></td>";
-                   echo "<td><a href='#' onclick='excluir({$row['mat']})'><i class='fas fa-trash-alt'></i></a></td>";
+                   echo "<td>{$row['tel']}</td>";  
+                   echo "<td>
+                   <a href='editar.php?mat={$row[0]}'>
+                   <i class='fas fa-user-edit'></i>
+                   </a>
+                   </td>";     
+                   echo "<td>
+                   <a href='#' onclick='excluir({$row[0]})'>
+                   <i class='fas fa-trash-alt'></i>
+                   </a>
+                   </td>";
                    echo "</tr>";
                 }     
                         ?>

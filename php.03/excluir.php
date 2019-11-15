@@ -1,15 +1,17 @@
 <?php
 
-$mat = $_GET["mat"];
+if(isset($_GET["mat"]) && !empty($_GET["mat"])){
+    $mat   = $_GET["mat"];
 
-include_once 'conexao.php';
+    include_once 'conexao.php';
 
-$sql = "DELETE FROM aluno WHERE mat = $mat";
+    $sql = "DELETE FROM aluno WHERE mat=".$mat;
 
-$msg = (mysqli_query($con, $sql)) ? "Excluido com sucesso" : "Erro ao excluir";
+    $msg = (mysqli_query($con, $sql)) ? "Excluído com sucesso" : "Erro ao excluir";
 
-mysqli_close($con);
-
-header("location:msg.php?msg=".$msg);
+    mysqli_close($con);
+    
+    header("location:msg.php?msg=".$msg);
+}
 
 ?>
